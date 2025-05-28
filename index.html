@@ -1,67 +1,58 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portofolio - Fahmi Ramadhani</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <div class="container">
-      <img src="assets/me.jpg" alt="Foto Profil" class="profile-pic" />
-      <h1>Fahmi Ramadhani</h1>
-      <p class="tagline">Fullstack Developer | Web & Mobile Enthusiast</p>
-      <div class="social">
-        <a href="https://github.com/lukaririnki26" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/fahmi-ramadhani-455428216" target="_blank">LinkedIn</a>
-        <a href="mailto:fahmiriottss@gmail.com">Gmail</a>
-      </div>
-    </div>
-  </header>
+<html lang="en" class="bg-black text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fahmi Ramadhani Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes glow {
+        0%, 100% {
+          box-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+        }
+        50% {
+          box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-b from-black to-gray-900 min-h-screen flex flex-col items-center justify-center px-6">
+    <!-- Header -->
+    <header class="text-center mb-16 mt-4">
+      <h1 class="text-5xl font-bold text-cyan-400 drop-shadow-lg">Fahmi Ramadhani</h1>
+      <p class="mt-4 text-gray-300 text-lg max-w-xl mx-auto">Web Developer</p>
+    </header>
 
-  <main class="container">
-    <section>
-      <h2>🧠 Tentang Saya</h2>
-      <p>
-        Saya adalah seorang web developer dengan pengalaman 3 tahun, fokus pada Laravel,Flutter dll
-         dan membangun aplikasi yang performa tinggi serta mudah digunakan.
+    <!-- Main Card -->
+    <section class="bg-gray-950/60 border border-cyan-400 p-10 rounded-2xl shadow-xl max-w-4xl w-full animate-glow">
+      <h2 class="text-3xl font-semibold text-cyan-300 mb-4">🚀 My Mission</h2>
+      <p class="text-gray-300 leading-relaxed">
+        I specialize in creating immersive web apps using modern technologies like React, TailwindCSS, and WebSockets.
+        My mission is to design experiences that feel like you're on the bridge of a starship.
       </p>
-    </section>
-
-    <!-- <section>
-        <h2>🚀 Proyek Unggulan</h2>
-        <div class="project-slider">
-          <div class="project-card">
-            <img src="assets/projects/motoriz.png" alt="Motoriz">
-            <div class="project-info">
-              <h3>Motoriz</h3>
-              <p>Kontribusi: Backend Laravel (API & autentikasi), dokumentasi teknis
-                Peran: Developer tim.</p>
-              <a href="https://github.com/username/inventory-app" target="_blank">🔗 Lihat Project</a>
-            </div>
-          </div>
-          <div class="project-card">
-            <img src="assets/projects/task-planner.png" alt="Task Planner App">
-            <div class="project-info">
-              <h3>🗓️ Task Planner</h3>
-              <p>Aplikasi produktivitas dengan React dan Firebase.</p>
-              <a href="https://github.com/username/task-planner" target="_blank">🔗 Lihat Project</a>
-            </div>
-          </div>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 border border-cyan-700 p-4 rounded-xl hover:scale-105 transition-transform">
+          <h3 class="text-xl font-medium text-cyan-200">🧠 AI Integration</h3>
+          <p class="text-gray-400 text-sm mt-2">I integrate AI models into web apps using APIs and local models for intelligent interaction.</p>
         </div>
-    </section> -->
-      
-
-    <section>
-      <h2>📞 Kontak</h2>
-      <p>Silakan hubungi saya via <a href="mailto:fahmiriottss@gmail.com">email</a> atau lihat CV saya di bawah.</p>
-      <a href="assets/cv.pdf" class="btn" target="_blank">📄 Lihat CV</a>
+        <div class="bg-gray-900 border border-cyan-700 p-4 rounded-xl hover:scale-105 transition-transform">
+          <h3 class="text-xl font-medium text-cyan-200">🌌 Cosmic UI</h3>
+          <p class="text-gray-400 text-sm mt-2">UIs that glow and breathe — inspired by space and the digital frontier.</p>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2025 Fahmi Ramadhani — Dibuat dengan ❤️ dan semangat belajar.</p>
-  </footer>
-</body>
+    <!-- Contact Button -->
+    <div class="mt-12">
+      <a href="mailto:fahmiriottss@gmail.com"
+        class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-full shadow-md transition-all duration-300">
+        💬 Contact Me
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-gray-600 text-sm">
+      &copy; 2025 Fahmiriottss. All rights reserved.
+    </footer>
+  </body>
 </html>
