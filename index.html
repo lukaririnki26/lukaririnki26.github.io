@@ -98,7 +98,7 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero container">
-      <div class="hero-text reveal">
+      <div class="hero-text">
         <div class="hero-id">
           <img class="avatar" src="/assets/img/avatar.jpg" alt="Foto profil Fahmi Ramadhani" data-i18n-attr="alt:hero.avatar" width="72" height="72">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span> <span data-i18n="hero.badge">Terbuka untuk proyek &amp; kolaborasi</span></p>
@@ -124,7 +124,7 @@
         </ul>
       </div>
 
-      <aside class="hero-card reveal" data-i18n-attr="aria-label:hero.summary" aria-label="Ringkasan">
+      <aside class="hero-card" data-i18n-attr="aria-label:hero.summary" aria-label="Ringkasan">
         <div class="terminal">
           <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span data-i18n="code.file">profil.json</span></div>
 <pre><code data-i18n="code.body">{
@@ -137,9 +137,9 @@
 }</code></pre>
         </div>
         <dl class="stats">
-          <div><dt data-i18n="stats.years">Tahun pengalaman</dt><dd>5+</dd></div>
-          <div><dt data-i18n="stats.commits">Commit sejak 2025</dt><dd data-i18n="stats.commits.v">1.400+</dd></div>
-          <div><dt data-i18n="stats.services">Layanan Go dikerjakan</dt><dd>9</dd></div>
+          <div><dt data-i18n="stats.years">Tahun pengalaman</dt><dd data-count>5+</dd></div>
+          <div><dt data-i18n="stats.commits">Commit sejak 2025</dt><dd data-count data-i18n="stats.commits.v">1.400+</dd></div>
+          <div><dt data-i18n="stats.services">Layanan Go dikerjakan</dt><dd data-count>9</dd></div>
         </dl>
       </aside>
     </section>
@@ -368,7 +368,7 @@ internal/modules/
             <span class="project-badge">Open Source</span>
             <span class="project-year">2026</span>
           </div>
-          <img class="project-shot" src="/assets/img/smart-filler-demo.jpg" width="1040" height="872" loading="lazy" alt="Formulir pendaftaran yang diisi otomatis oleh Smart Filler dengan data sintetis" data-i18n-attr="alt:p6.shot">
+          <div class="project-shot"><img src="/assets/img/smart-filler-demo.jpg" width="1040" height="872" loading="lazy" alt="Formulir pendaftaran yang diisi otomatis oleh Smart Filler dengan data sintetis" data-i18n-attr="alt:p6.shot"></div>
           <h3>Smart Filler</h3>
           <p data-i18n="p6.d">
             Ekstensi Chrome yang mengisi form dengan data uji yang realistis. Field dikenali dari autocomplete, label
@@ -389,7 +389,7 @@ internal/modules/
         <p class="kicker" data-i18n="exp.kicker">04 — Pengalaman</p>
         <h2 id="pengalaman-judul" data-i18n="exp.title">Perjalanan kerja.</h2>
       </div>
-      <ol class="timeline">
+      <ol class="timeline reveal-line">
         <li class="reveal">
           <div class="when" data-i18n="exp.0.when">Agu 2025 — Sekarang</div>
           <div class="what">

@@ -7,6 +7,7 @@
 
   // Tema: ikuti sistem sampai pengunjung memilih sendiri.
   var themeBtn = document.querySelector('.theme-toggle');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function currentTheme() {
     var set = root.getAttribute('data-theme');
     if (set) return set;
@@ -15,7 +16,10 @@
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      // Warna berpindah halus hanya selama pergantian tema, supaya hover biasa tetap cepat.
+      root.classList.add('theme-anim');
       root.setAttribute('data-theme', next);
+      setTimeout(function () { root.classList.remove('theme-anim'); }, 400);
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
   }
@@ -55,13 +59,65 @@
     navLinks[a.getAttribute('href').slice(1)] = a;
   });
 
+  // Kartu dalam satu grup muncul bergantian, bukan serentak.
+  document.querySelectorAll('.skills, .projects, .timeline').forEach(function (group) {
+    var i = 0;
+    Array.prototype.forEach.call(group.children, function (el) {
+      if (el.classList.contains('reveal')) el.dataset.delay = Math.min(i++, 5) * 80;
+    });
+  });
+  function show(el) {
+    var delay = +el.dataset.delay || 0;
+    el.style.transitionDelay = delay + 'ms';
+    el.classList.add('is-visible');
+    setTimeout(function () { el.style.transitionDelay = ''; el.classList.add('reveal-done'); }, delay + 650);
+  }
+
+  // Angka ringkasan menghitung naik dari 0, dengan format angka bahasa aktif.
+  function countUp(el) {
+    var target = el.textContent.trim();
+    var m = target.match(/^([\d.,]+)(.*)$/);
+    if (!m || reduceMotion) return;
+    var sep = (m[1].match(/[.,]/) || [''])[0];
+    var end = parseInt(m[1].replace(/[.,]/g, ''), 10);
+    var start = performance.now(), dur = 1100;
+    el.dataset.counting = '1';
+    function frame(now) {
+      if (el.dataset.counting !== '1') return; // dihentikan karena bahasa diganti
+      var p = Math.min((now - start) / dur, 1);
+      var v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      el.textContent = (sep ? String(v).replace(/\B(?=(\d{3})+(?!\d))/g, sep) : String(v)) + m[2];
+      if (p < 1) requestAnimationFrame(frame);
+      else { el.textContent = target; delete el.dataset.counting; }
+    }
+    requestAnimationFrame(frame);
+  }
+  // Teks terjemahan sudah dipasang i18n.js; cukup hentikan hitungan di elemen itu.
+  if (window.i18n) window.i18n.onChange(function () {
+    document.querySelectorAll('[data-count][data-i18n][data-counting]').forEach(function (el) { delete el.dataset.counting; });
+  });
+
   if ('IntersectionObserver' in window) {
     var revealObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-visible'); revealObs.unobserve(en.target); }
+        if (en.isIntersecting) { show(en.target); revealObs.unobserve(en.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+    var lineObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-drawn'); lineObs.unobserve(en.target); }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.reveal-line').forEach(function (el) { lineObs.observe(el); });
+
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { setTimeout(function () { countUp(en.target); }, 350); countObs.unobserve(en.target); }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(function (el) { countObs.observe(el); });
 
     var sectionObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -74,11 +130,13 @@
     document.querySelectorAll('main section[id]').forEach(function (s) { sectionObs.observe(s); });
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    document.querySelectorAll('.reveal-line').forEach(function (el) { el.classList.add('is-drawn'); });
   }
 
   // Saring proyek per kategori.
   var chips = document.querySelectorAll('.chip[data-filter]');
   var projects = document.querySelectorAll('.project[data-category]');
+  var projectGrid = document.querySelector('.projects');
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       var f = chip.getAttribute('data-filter');
@@ -87,11 +145,14 @@
         c.classList.toggle('is-active', on);
         c.setAttribute('aria-pressed', String(on));
       });
+      projectGrid.classList.remove('is-filtering');
+      void projectGrid.offsetWidth; // mulai ulang animasi bila filter diklik beruntun
       projects.forEach(function (p) {
         var cats = p.getAttribute('data-category').split(' ');
         p.hidden = !(f === 'semua' || cats.indexOf(f) !== -1);
-        if (!p.hidden) p.classList.add('is-visible');
+        if (!p.hidden) p.classList.add('is-visible', 'reveal-done');
       });
+      projectGrid.classList.add('is-filtering');
     });
   });
 

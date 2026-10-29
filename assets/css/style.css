@@ -252,6 +252,8 @@ button { font: inherit; color: inherit; }
   display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 16px; border-radius: 11px;
   background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary);
 }
+.skill-icon { transition: transform .25s ease; }
+.skill-card:hover .skill-icon { transform: translateY(-2px) rotate(-4deg); }
 .skill-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .skill-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .skill-card p { color: var(--muted); font-size: 15px; }
@@ -287,7 +289,9 @@ button { font: inherit; color: inherit; }
   background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent);
 }
 .project-year { color: var(--subtle); font: 13px "JetBrains Mono", monospace; }
-.project-shot { width: 100%; height: auto; margin-bottom: 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); }
+.project-shot { margin-bottom: 18px; overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); }
+.project-shot img { width: 100%; height: auto; transition: transform .5s ease; }
+.project:hover .project-shot img { transform: scale(1.025); }
 .project-code {
   margin: 18px 0 0; padding: 14px 16px; overflow-x: auto; border-radius: 10px; background: var(--code-bg);
   color: var(--code-text); font: 12.5px/1.6 "JetBrains Mono", ui-monospace, monospace;
@@ -301,7 +305,8 @@ button { font: inherit; color: inherit; }
 @media (max-width: 480px) { .metrics { grid-template-columns: 1fr; } }
 .project .tags { margin-top: auto; padding-top: 20px; }
 .project-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 18px; }
-.project-links a { color: var(--primary); font-weight: 600; font-size: 15px; }
+.project-links a { display: inline-block; color: var(--primary); font-weight: 600; font-size: 15px; transition: transform .2s ease; }
+.project-links a:hover { transform: translateX(3px); }
 .project-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Pengalaman */
@@ -348,14 +353,49 @@ button { font: inherit; color: inherit; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .footer-inner a:hover { color: var(--text); }
 
-/* Animasi muncul */
-/* Hanya disembunyikan bila JS jalan, supaya konten tetap terlihat tanpa JS. */
+/* ===== Animasi ===== */
+/* Semua hanya aktif bila JS jalan (kelas .js), supaya konten tetap terlihat tanpa JS. */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes lines { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes icon-in { from { opacity: 0; transform: rotate(-60deg) scale(.6); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Muncul saat digulir; jeda per kartu diatur main.js lewat transition-delay. */
 .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .js .reveal.is-visible { opacity: 1; transform: none; }
+/* Setelah muncul, kartu kembali ke transisi hover yang cepat. */
+.js .project.reveal-done, .js .skill-card.reveal-done { transition: transform .2s, box-shadow .2s, border-color .2s; }
+
+/* Hero: berurutan saat halaman dibuka. */
+.js .hero-text > *, .js .hero-card { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+.js .hero-text > :nth-child(2) { animation-delay: .08s; }
+.js .hero-text > :nth-child(3) { animation-delay: .16s; }
+.js .hero-text > :nth-child(4) { animation-delay: .24s; }
+.js .hero-text > :nth-child(5) { animation-delay: .32s; }
+.js .hero-card { animation-delay: .2s; }
+/* Isi profil.json terbuka baris demi baris (8 baris). */
+.js .terminal pre code { display: block; animation: lines .9s steps(8, end) .6s both; }
+
+/* Garis timeline tergambar dari atas, titiknya muncul bersama tiap entri. */
+.js .reveal-line::before { transform: scaleY(0); transform-origin: top; transition: transform 1.4s cubic-bezier(.4, 0, .2, 1); }
+.js .reveal-line.is-drawn::before { transform: scaleY(1); }
+.js .timeline > li.reveal::before { transform: scale(0); transition: transform .4s cubic-bezier(.3, 1.6, .5, 1) .25s; }
+.js .timeline > li.reveal.is-visible::before { transform: scale(1); }
+
+/* Kartu yang tampil setelah filter proyek diganti. */
+.projects.is-filtering .project:not([hidden]) { animation: fade-in .35s ease both; }
+
+/* Ikon tema berputar masuk setiap kali berganti; warna berpindah halus. */
+.theme-toggle svg { animation: icon-in .35s ease; }
+.theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, fill .35s ease !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  * { transition-duration: 0s !important; }
+  .js .reveal-line::before, .js .timeline > li.reveal::before { transform: none; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
 }
 
 /* Halaman 404 */
