@@ -3,128 +3,141 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV — Fahmi Ramadhani</title>
+<title>CV - Fahmi Ramadhani - Backend and Full-Stack Developer</title>
+<meta name="author" content="Fahmi Ramadhani">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<!-- Sumber assets/cv.pdf. Cetak ulang: brave-browser --headless=new --no-pdf-header-footer --print-to-pdf=assets/cv.pdf cv/index.html -->
+<!--
+  Sumber assets/cv.pdf. Dibuat ramah ATS: satu kolom, judul bagian standar, semua isi berupa teks (tanpa tabel atau
+  ikon), tautan ditulis lengkap, tanggal memakai tanda hubung biasa. Foto hanya hiasan; ATS mengabaikannya.
+  Cetak ulang: brave-browser --headless=new --no-pdf-header-footer --print-to-pdf=assets/cv.pdf cv/index.html
+-->
 <style>
-  @page { size: A4; margin: 12mm 14mm; }
+  @page { size: A4; margin: 11mm 13mm; }
   * { box-sizing: border-box; }
   html { background: #e5e7eb; }
   body {
-    max-width: 210mm; margin: 24px auto; padding: 14mm 15mm; background: #fff; color: #0f172a;
-    font: 9.5pt/1.4 Inter, Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    max-width: 210mm; margin: 24px auto; padding: 12mm 14mm; background: #fff; color: #111827;
+    font: 9.3pt/1.36 Inter, Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   @media print { html { background: #fff; } body { margin: 0; padding: 0; max-width: none; } }
-  h1 { margin: 0; font-size: 22pt; font-weight: 800; letter-spacing: -0.02em; }
-  .role { margin-top: 2px; font-size: 11.5pt; font-weight: 600; color: #4f46e5; }
-  .contact { margin-top: 5px; color: #475569; font-size: 8.5pt; }
+  header { display: flex; gap: 16px; align-items: center; }
+  header img { width: 23mm; height: 23mm; object-fit: cover; border-radius: 3mm; flex: none; }
+  h1 { margin: 0; font-size: 21pt; font-weight: 800; letter-spacing: -0.01em; }
+  .headline { margin: 1px 0 0; font-size: 11pt; font-weight: 600; color: #3730a3; }
+  .contact { margin: 4px 0 0; color: #374151; font-size: 8.8pt; }
   .contact a { color: inherit; text-decoration: none; }
-  .contact span + span::before { content: "·"; margin: 0 7px; color: #94a3b8; }
   h2 {
-    margin: 11px 0 5px; padding-bottom: 2px; border-bottom: 1.5px solid #0f172a;
-    font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    margin: 9px 0 4px; padding-bottom: 2px; border-bottom: 1.5px solid #111827;
+    font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
   }
   p { margin: 0; }
-  .job { margin-top: 6px; break-inside: avoid; }
+  .job { margin-top: 5px; break-inside: avoid; }
   .job-head { display: flex; justify-content: space-between; gap: 12px; }
   .job-title { font-weight: 700; }
-  .job-title span { font-weight: 500; color: #475569; }
-  .when { color: #475569; white-space: nowrap; font-size: 9pt; }
-  ul { margin: 3px 0 0; padding-left: 15px; }
+  .org { color: #374151; }
+  .when { color: #374151; white-space: nowrap; }
+  ul { margin: 2px 0 0; padding-left: 15px; }
   li { margin: 1px 0; }
-  .skills { display: grid; grid-template-columns: 105px 1fr; gap: 2px 10px; }
-  .skills dt { font-weight: 600; }
-  .skills dd { margin: 0; }
-  a { color: #4f46e5; }
+  .skills p { margin: 1px 0; }
+  a { color: #3730a3; }
 </style>
 </head>
 <body>
   <header>
-    <h1>Fahmi Ramadhani</h1>
-    <div class="role">Developer · Backend &amp; Full-Stack</div>
-    <div class="contact">
-      <span>Indonesia · open to remote</span>
-      <span><a href="mailto:fahmiriottss@gmail.com">fahmiriottss@gmail.com</a></span>
-      <span><a href="https://lukaririnki26.github.io/">lukaririnki26.github.io</a></span>
-      <span><a href="https://github.com/lukaririnki26">github.com/lukaririnki26</a></span>
-      <span><a href="https://www.linkedin.com/in/fahmi-ramadhani-455428216/">linkedin.com/in/fahmi-ramadhani-455428216</a></span>
+    <img src="photo.jpg" alt="Photo of Fahmi Ramadhani">
+    <div>
+      <h1>Fahmi Ramadhani</h1>
+      <p class="headline">Backend Developer | Full-Stack Developer</p>
+      <p class="contact">
+        +62 838 3417 5951 | <a href="mailto:fahmiriottss@gmail.com">fahmiriottss@gmail.com</a> |
+        Plinggisan RT.03 RW.05, Kec. Kraton, Kab. Pasuruan, Jawa Timur, Indonesia (open to remote)
+      </p>
+      <p class="contact">
+        <a href="https://lukaririnki26.github.io/">lukaririnki26.github.io</a> |
+        <a href="https://github.com/lukaririnki26">github.com/lukaririnki26</a> |
+        <a href="https://www.linkedin.com/in/fahmi-ramadhani-455428216/">linkedin.com/in/fahmi-ramadhani-455428216</a>
+      </p>
     </div>
   </header>
 
   <h2>Summary</h2>
   <p>
-    Developer with 5+ years of experience building ERP systems, mobile apps, and financial platforms, from Laravel and
-    MySQL to Go microservices, PostgreSQL, and Nuxt. Comfortable across the backend, database, frontend, and deployment,
-    with experience leading modules, drawing process flowcharts, and working directly with clients.
+    Backend and Full-Stack Developer with 5+ years of experience building ERP systems, mobile apps, and financial
+    platforms, from Laravel and MySQL to Go microservices, PostgreSQL, and Nuxt. Experienced in REST and gRPC APIs,
+    database performance, large data imports, CI/CD, and monitoring, as well as leading modules, drawing process
+    flowcharts, and working directly with clients.
   </p>
 
-  <h2>Experience</h2>
+  <h2>Work Experience</h2>
   <div class="job">
     <div class="job-head">
-      <div class="job-title">Backend Developer <span>· PT Dynamic Talenta Navigator</span></div>
-      <div class="when">Jul 2025 – Present</div>
+      <p><span class="job-title">Backend Developer</span> <span class="org">- PT Dynamic Talenta Navigator</span></p>
+      <p class="when">Jul 2025 - Present</p>
     </div>
     <ul>
       <li>Develop a large-scale financial platform, from its Laravel version to a new version built on Go microservices and Nuxt (~1,400 commits).</li>
-      <li>Built an Excel/CSV import engine that loads 1 million rows in under 5 minutes without locking tables in use.</li>
-      <li>Built an in-app AI assistant (RAG with pgvector) with per-role access; personal data is never sent to the model.</li>
-      <li>Built a REST API with Hono on Deno and Supabase (email/OAuth login, OTP) with CI/CD, and a Nuxt + Firebase admin panel.</li>
+      <li>Built an Excel/CSV import engine in Go and PostgreSQL that loads 1 million rows in under 5 minutes without locking tables in use.</li>
+      <li>Built an in-app AI assistant (RAG with pgvector, function calling) with role-based access; personal data is never sent to the model.</li>
+      <li>Built a REST API with Hono on Deno and Supabase (email/OAuth login, OTP) with CI/CD, and a Nuxt and Firebase admin panel.</li>
       <li>Created a Go modular-monolith boilerplate for the team, prototyped gRPC microservices with load testing, and integrated Kafka into a Laravel backend.</li>
-      <li>Set up deployment, monitoring, and observability across several servers (Docker, GitHub Actions, Grafana, Prometheus, Loki).</li>
+      <li>Set up Docker deployment, GitHub Actions CI, and monitoring (Grafana, Prometheus, Loki) across several servers.</li>
     </ul>
   </div>
   <div class="job">
     <div class="job-head">
-      <div class="job-title">Senior Full-Stack Developer <span>· PT Lingkar Kreasi, Jakarta</span></div>
-      <div class="when">Sep 2023 – Jul 2025</div>
+      <p><span class="job-title">Senior Full-Stack Developer</span> <span class="org">- PT Lingkar Kreasi, Jakarta</span></p>
+      <p class="when">Sep 2023 - Jul 2025</p>
     </div>
     <ul>
-      <li>Developed and optimized ERP modules and integrated new features into the running system; gave direction as project leader.</li>
-      <li>Sped up summary reports with MongoDB and large data imports/exports with Python Flask and a queue system.</li>
+      <li>Developed and optimized ERP modules, integrated new features into the running system, and gave direction as project leader.</li>
+      <li>Improved summary report performance with MongoDB and large data imports/exports with Python Flask and a queue system.</li>
       <li>Designed process flowcharts for clear communication and project planning.</li>
       <li>Built a mobile app with Flutter on a Laravel API.</li>
     </ul>
   </div>
   <div class="job">
     <div class="job-head">
-      <div class="job-title">Full-Stack Developer <span>· PT Lingkar Kreasi, Jakarta</span></div>
-      <div class="when">Jun 2021 – Sep 2023</div>
+      <p><span class="job-title">Full-Stack Developer</span> <span class="org">- PT Lingkar Kreasi, Jakarta</span></p>
+      <p class="when">Jun 2021 - Sep 2023</p>
     </div>
     <ul>
-      <li>Built and extended client web applications with Laravel, Bootstrap, jQuery, and MySQL.</li>
-      <li>Worked with clients directly to create and adjust applications to their needs; collaborated through Git.</li>
+      <li>Built and extended responsive web applications with Laravel, Bootstrap, jQuery, and MySQL.</li>
+      <li>Worked with clients directly to create and update applications to their needs; collaborated through Git.</li>
     </ul>
   </div>
   <div class="job">
     <div class="job-head">
-      <div class="job-title">Intern <span>· VEDC Malang</span></div>
-      <div class="when">Oct 2019 – Mar 2020</div>
+      <p><span class="job-title">Intern</span> <span class="org">- VEDC Malang, Malang</span></p>
+      <p class="when">Oct 2019 - Mar 2020</p>
     </div>
     <ul>
-      <li>Built a Delphi desktop app to support civil servants' work and helped run training sessions.</li>
+      <li>Built a Delphi desktop app to support civil servants' work and assisted in running training sessions.</li>
     </ul>
   </div>
 
-  <h2>Open Source</h2>
+  <h2>Projects</h2>
   <ul>
-    <li><strong>Smart Filler</strong>: Chrome extension that fills forms with realistic test data (React, Vue, Angular, PrimeVue, MUI; English and Indonesian). <a href="https://github.com/lukaririnki26/smart-filler">github.com/lukaririnki26/smart-filler</a></li>
-    <li><strong>Go &amp; Rust boilerplates</strong>: modular-monolith starters with JWT auth, migrations, and Docker. <a href="https://github.com/lukaririnki26/boilerplate-go">boilerplate-go</a>, <a href="https://github.com/lukaririnki26/boilerplate-rust">boilerplate-rust</a></li>
+    <li><strong>Smart Filler</strong> (JavaScript, Chrome Extension): fills web forms with realistic test data on React, Vue, Angular, PrimeVue, and MUI, in English and Indonesian. github.com/lukaririnki26/smart-filler</li>
+    <li><strong>Go and Rust boilerplates</strong> (Go, Rust, Docker): modular-monolith starters with JWT authentication, migrations, and seeders. github.com/lukaririnki26/boilerplate-go, github.com/lukaririnki26/boilerplate-rust</li>
   </ul>
 
   <h2>Skills</h2>
-  <dl class="skills">
-    <dt>Backend</dt><dd>Go, PHP (Laravel), Python (Flask), gRPC, NATS, REST, Kafka</dd>
-    <dt>Databases</dt><dd>PostgreSQL (partitioning, indexing, COPY), MySQL, MongoDB, Redis, pgvector</dd>
-    <dt>Frontend</dt><dd>Vue 3, Nuxt, PrimeVue, Bootstrap, jQuery, Flutter</dd>
-    <dt>DevOps</dt><dd>Docker, GitHub Actions, Caddy, Grafana, Prometheus, Loki, Supabase</dd>
-    <dt>Other</dt><dd>Communication, teamwork, leadership, problem-solving, process flowcharts</dd>
-  </dl>
+  <div class="skills">
+    <p><strong>Backend:</strong> Go, PHP, Laravel, Python, Flask, REST API, gRPC, NATS, Kafka</p>
+    <p><strong>Databases:</strong> PostgreSQL (partitioning, indexing, query tuning), MySQL, MongoDB, Redis, pgvector</p>
+    <p><strong>Frontend and Mobile:</strong> Vue.js, Nuxt, TypeScript, JavaScript, PrimeVue, Bootstrap, jQuery, Flutter</p>
+    <p><strong>DevOps:</strong> Docker, GitHub Actions, CI/CD, Caddy, Nginx, Grafana, Prometheus, Loki, Supabase, Git</p>
+    <p><strong>Soft Skills:</strong> Communication, Teamwork, Leadership, Problem-solving, Adaptability</p>
+  </div>
 
   <h2>Education</h2>
-  <p><strong>SMKN 1 Kota Pasuruan</strong> · Pasuruan, East Java</p>
+  <div class="job-head">
+    <p><strong>SMKN 1 Kota Pasuruan</strong> - Pasuruan, Jawa Timur</p>
+    <p class="when">2018 - 2020</p>
+  </div>
 </body>
 </html>

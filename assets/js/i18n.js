@@ -115,8 +115,7 @@
     'exp.3.when': 'Oct 2019 — Mar 2020',
     'exp.3.t': 'Internship · <span>VEDC Malang</span>',
     'exp.3.d': 'Built a Delphi desktop app to support civil servants\' work, and helped run training sessions.',
-    'exp.4.when': 'Education',
-    'exp.4.d': 'Pasuruan, East Java.',
+    'exp.4.d': 'Vocational high school · Pasuruan, East Java.',
 
     'contact.kicker': '05 — Contact',
     'contact.title': 'Have a project or a role in mind? Let\'s talk.',
