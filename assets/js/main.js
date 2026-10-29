@@ -1,11 +1,11 @@
 (function () {
   var root = document.documentElement;
-  // Teks dinamis ikut bahasa aktif (lihat i18n.js); tanpa i18n.js jatuh ke teks Indonesia.
+  // Dynamic strings follow the active language (see i18n.js); without i18n.js they fall back to Indonesian.
   var FALLBACK = { 'js.menu.open': 'Buka menu', 'js.menu.close': 'Tutup menu', 'js.copy.ok': 'Tersalin',
     'js.copy.manual': 'Salin manual: ' };
   function t(key) { return (window.i18n && window.i18n.t(key)) || FALLBACK[key]; }
 
-  // Tema: ikuti sistem sampai pengunjung memilih sendiri.
+  // Theme: follow the system setting until the visitor picks one.
   var themeBtn = document.querySelector('.theme-toggle');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function currentTheme() {
@@ -16,7 +16,7 @@
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
-      // Warna berpindah halus hanya selama pergantian tema, supaya hover biasa tetap cepat.
+      // Smooth color transition only while switching themes, so regular hovers stay snappy.
       root.classList.add('theme-anim');
       root.setAttribute('data-theme', next);
       setTimeout(function () { root.classList.remove('theme-anim'); }, 400);
@@ -24,7 +24,7 @@
     });
   }
 
-  // Menu ponsel.
+  // Mobile menu.
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('nav-menu');
   function closeMenu() {
@@ -47,19 +47,19 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   }
 
-  // Garis bawah header setelah digulir.
+  // Header border after scrolling.
   var header = document.querySelector('.site-header');
   function onScroll() { header && header.classList.toggle('is-scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Animasi muncul + tautan menu aktif.
+  // Reveal-on-scroll and active nav link.
   var navLinks = {};
   document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function (a) {
     navLinks[a.getAttribute('href').slice(1)] = a;
   });
 
-  // Kartu dalam satu grup muncul bergantian, bukan serentak.
+  // Stagger cards within a group instead of revealing them all at once.
   document.querySelectorAll('.skills, .projects, .timeline').forEach(function (group) {
     var i = 0;
     Array.prototype.forEach.call(group.children, function (el) {
@@ -73,7 +73,7 @@
     setTimeout(function () { el.style.transitionDelay = ''; el.classList.add('reveal-done'); }, delay + 650);
   }
 
-  // Angka ringkasan menghitung naik dari 0, dengan format angka bahasa aktif.
+  // Summary numbers count up from 0, keeping the active language's number format.
   function countUp(el) {
     var target = el.textContent.trim();
     var m = target.match(/^([\d.,]+)(.*)$/);
@@ -83,7 +83,7 @@
     var start = performance.now(), dur = 1100;
     el.dataset.counting = '1';
     function frame(now) {
-      if (el.dataset.counting !== '1') return; // dihentikan karena bahasa diganti
+      if (el.dataset.counting !== '1') return; // stopped because the language changed
       var p = Math.min((now - start) / dur, 1);
       var v = Math.round(end * (1 - Math.pow(1 - p, 3)));
       el.textContent = (sep ? String(v).replace(/\B(?=(\d{3})+(?!\d))/g, sep) : String(v)) + m[2];
@@ -92,7 +92,7 @@
     }
     requestAnimationFrame(frame);
   }
-  // Teks terjemahan sudah dipasang i18n.js; cukup hentikan hitungan di elemen itu.
+  // i18n.js has already set the translated text; just stop counting on that element.
   if (window.i18n) window.i18n.onChange(function () {
     document.querySelectorAll('[data-count][data-i18n][data-counting]').forEach(function (el) { delete el.dataset.counting; });
   });
@@ -133,7 +133,7 @@
     document.querySelectorAll('.reveal-line').forEach(function (el) { el.classList.add('is-drawn'); });
   }
 
-  // Saring proyek per kategori.
+  // Filter projects by category.
   var chips = document.querySelectorAll('.chip[data-filter]');
   var projects = document.querySelectorAll('.project[data-category]');
   var projectGrid = document.querySelector('.projects');
@@ -146,24 +146,24 @@
         c.setAttribute('aria-pressed', String(on));
       });
       projectGrid.classList.remove('is-filtering');
-      void projectGrid.offsetWidth; // mulai ulang animasi bila filter diklik beruntun
+      void projectGrid.offsetWidth; // restart the animation when filters are clicked in quick succession
       projects.forEach(function (p) {
         var cats = p.getAttribute('data-category').split(' ');
-        p.hidden = !(f === 'semua' || cats.indexOf(f) !== -1);
+        p.hidden = !(f === 'all' || cats.indexOf(f) !== -1);
         if (!p.hidden) p.classList.add('is-visible', 'reveal-done');
       });
       projectGrid.classList.add('is-filtering');
     });
   });
 
-  // Salin email.
+  // Copy email.
   var copyBtn = document.querySelector('.copy-email');
   var status = document.querySelector('.copy-status');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
       var email = copyBtn.getAttribute('data-email');
       function done(msg) { if (status) { status.textContent = msg; setTimeout(function () { status.textContent = ''; }, 2500); } }
-      // Cadangan bila Clipboard API tidak tersedia atau ditolak.
+      // Fallback when the Clipboard API is unavailable or denied.
       function legacyCopy() {
         var ta = document.createElement('textarea');
         ta.value = email;

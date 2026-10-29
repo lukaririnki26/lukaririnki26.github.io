@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <script>
-    // Pasang tema dan bahasa sebelum halaman digambar supaya tidak berkedip.
+    // Apply theme and language before first paint to avoid a flash.
     (function () {
       var root = document.documentElement;
       root.classList.add('js');
@@ -40,7 +40,7 @@
         if (l !== 'id' && l !== 'en') l = /^id\b/i.test(navigator.language || '') ? 'id' : 'en';
         if (l === 'en') {
           root.classList.add('i18n-pending');
-          // Pengaman: teks tetap tampil walau i18n.js gagal dimuat.
+          // Safety net: show text even if i18n.js fails to load.
           setTimeout(function () { root.classList.remove('i18n-pending'); }, 1500);
         }
         root.setAttribute('data-lang', l);
@@ -76,11 +76,11 @@
       </button>
 
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="#tentang" data-i18n="nav.about">Tentang</a></li>
-        <li><a href="#keahlian" data-i18n="nav.skills">Keahlian</a></li>
-        <li><a href="#proyek" data-i18n="nav.projects">Proyek</a></li>
-        <li><a href="#pengalaman" data-i18n="nav.experience">Pengalaman</a></li>
-        <li><a href="#kontak" data-i18n="nav.contact">Kontak</a></li>
+        <li><a href="#about" data-i18n="nav.about">Tentang</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Keahlian</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Proyek</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Pengalaman</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Kontak</a></li>
         <li class="nav-tools">
           <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.aria" aria-label="Pilih bahasa">
             <button type="button" data-lang-btn="id" aria-pressed="true" lang="id">ID</button>
@@ -108,7 +108,7 @@
             Halo, saya <strong>Fahmi Ramadhani</strong>, seorang developer. Lima tahun terakhir saya mengerjakan ERP, aplikasi mobile, dan platform keuangan, mulai dari Laravel dan MySQL sampai microservice Go, PostgreSQL, dan Nuxt.
           </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#proyek" data-i18n="hero.cta.projects">Lihat proyek</a>
+          <a class="btn btn-primary" href="#projects" data-i18n="hero.cta.projects">Lihat proyek</a>
           <a class="btn btn-ghost" href="/assets/cv.pdf" download="CV-Fahmi-Ramadhani.pdf" data-i18n="hero.cta.cv">Unduh CV</a>
         </div>
         <ul class="hero-social" data-i18n-attr="aria-label:hero.social" aria-label="Tautan sosial">
@@ -144,11 +144,11 @@
       </aside>
     </section>
 
-    <!-- TENTANG -->
-    <section class="section container" id="tentang" aria-labelledby="tentang-judul">
+    <!-- ABOUT -->
+    <section class="section container" id="about" aria-labelledby="about-title">
       <div class="section-head reveal">
         <p class="kicker" data-i18n="about.kicker">Tentang</p>
-        <h2 id="tentang-judul" data-i18n="about.title">Full-stack, dari database sampai layar.</h2>
+        <h2 id="about-title" data-i18n="about.title">Full-stack, dari database sampai layar.</h2>
       </div>
       <div class="about reveal">
         <p data-i18n="about.p1">
@@ -167,11 +167,11 @@
       </div>
     </section>
 
-    <!-- KEAHLIAN -->
-    <section class="section container" id="keahlian" aria-labelledby="keahlian-judul">
+    <!-- SKILLS -->
+    <section class="section container" id="skills" aria-labelledby="skills-title">
       <div class="section-head reveal">
         <p class="kicker" data-i18n="skills.kicker">Keahlian</p>
-        <h2 id="keahlian-judul" data-i18n="skills.title">Alat yang saya pakai sehari-hari.</h2>
+        <h2 id="skills-title" data-i18n="skills.title">Alat yang saya pakai sehari-hari.</h2>
       </div>
       <div class="skills">
         <article class="skill-card reveal">
@@ -225,15 +225,15 @@
       </div>
     </section>
 
-    <!-- PROYEK -->
-    <section class="section container" id="proyek" aria-labelledby="proyek-judul">
+    <!-- PROJECTS -->
+    <section class="section container" id="projects" aria-labelledby="projects-title">
       <div class="section-head reveal">
         <p class="kicker" data-i18n="projects.kicker">Proyek Pilihan</p>
-        <h2 id="proyek-judul" data-i18n="projects.title">Beberapa hal yang pernah saya bangun.</h2>
+        <h2 id="projects-title" data-i18n="projects.title">Beberapa hal yang pernah saya bangun.</h2>
       </div>
 
       <div class="filters reveal" role="group" data-i18n-attr="aria-label:projects.filter" aria-label="Saring proyek">
-        <button class="chip is-active" data-filter="semua" aria-pressed="true" data-i18n="projects.all">Semua</button>
+        <button class="chip is-active" data-filter="all" aria-pressed="true" data-i18n="projects.all">Semua</button>
         <button class="chip" data-filter="backend" aria-pressed="false">Backend</button>
         <button class="chip" data-filter="data" aria-pressed="false">Data</button>
         <button class="chip" data-filter="ai" aria-pressed="false">AI</button>
@@ -258,7 +258,7 @@
           </ul>
           <ul class="tags"><li>Go</li><li>PostgreSQL</li><li>NATS</li><li>Nuxt</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
+            <a href="#contact" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -278,7 +278,7 @@
           </ul>
           <ul class="tags"><li>PHP</li><li>Laravel</li><li>Vue</li><li>SQL</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
+            <a href="#contact" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -298,7 +298,7 @@
           </ul>
           <ul class="tags"><li>Go</li><li>PostgreSQL</li><li>MinIO</li><li>2PC</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
+            <a href="#contact" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -318,7 +318,7 @@
           </ul>
           <ul class="tags"><li>Go</li><li>LLM API</li><li>pgvector</li><li>RAG</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
+            <a href="#contact" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -335,7 +335,7 @@
           </p>
           <ul class="tags"><li>Laravel</li><li>MySQL</li><li>MongoDB</li><li>Flask</li><li>Flutter</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
+            <a href="#contact" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -383,11 +383,11 @@ internal/modules/
       </div>
     </section>
 
-    <!-- PENGALAMAN -->
-    <section class="section container" id="pengalaman" aria-labelledby="pengalaman-judul">
+    <!-- EXPERIENCE -->
+    <section class="section container" id="experience" aria-labelledby="experience-title">
       <div class="section-head reveal">
         <p class="kicker" data-i18n="exp.kicker">Pengalaman</p>
-        <h2 id="pengalaman-judul" data-i18n="exp.title">Perjalanan kerja.</h2>
+        <h2 id="experience-title" data-i18n="exp.title">Perjalanan kerja.</h2>
       </div>
       <ol class="timeline reveal-line">
         <li class="reveal">
@@ -455,11 +455,11 @@ internal/modules/
       </div>
     </section>
 
-    <!-- KONTAK -->
-    <section class="section container" id="kontak" aria-labelledby="kontak-judul">
+    <!-- CONTACT -->
+    <section class="section container" id="contact" aria-labelledby="contact-title">
       <div class="section-head reveal">
         <p class="kicker" data-i18n="contact.kicker">Kontak</p>
-        <h2 id="kontak-judul" data-i18n="contact.title">Mau ngobrol soal kerjaan?</h2>
+        <h2 id="contact-title" data-i18n="contact.title">Mau ngobrol soal kerjaan?</h2>
       </div>
       <div class="contact reveal">
         <p class="contact-note" data-i18n="contact.p">

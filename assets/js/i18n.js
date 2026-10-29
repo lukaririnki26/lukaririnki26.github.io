@@ -1,7 +1,7 @@
 /*
- * Dua bahasa: Indonesia (isi asli HTML) dan Inggris (kamus di bawah).
- * Teks Indonesia dibaca dari halaman saat dimuat, jadi cukup ubah index.html untuk versi Indonesia
- * dan kamus EN di file ini untuk versi Inggris. Kunci yang tidak ada di kamus tetap berbahasa Indonesia.
+ * Two languages: Indonesian (the original HTML content) and English (the dictionary below).
+ * Indonesian text is read from the page on load, so edit index.html for Indonesian and the EN
+ * dictionary in this file for English. Keys missing from the dictionary stay in Indonesian.
  */
 (function () {
   var EN = {
@@ -132,7 +132,7 @@
 
     'footer.top': 'Back to top ↑',
 
-    // Teks dinamis dari main.js
+    // Dynamic strings used by main.js
     'js.menu.open': 'Open menu',
     'js.menu.close': 'Close menu',
     'js.copy.ok': 'Copied',
@@ -150,7 +150,7 @@
   var ID = {};
   var listeners = [];
 
-  // Ambil teks Indonesia dari halaman sekali, sebelum diganti.
+  // Capture the Indonesian text from the page once, before it is replaced.
   document.querySelectorAll('[data-i18n]').forEach(function (el) {
     ID[el.getAttribute('data-i18n')] = el.innerHTML;
   });

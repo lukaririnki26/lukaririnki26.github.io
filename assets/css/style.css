@@ -1,4 +1,4 @@
-/* ===== Token warna & ukuran ===== */
+/* ===== Color and size tokens ===== */
 :root {
   --bg: #f8fafc;
   --bg-soft: #f1f5f9;
@@ -56,7 +56,7 @@
   color-scheme: dark;
 }
 
-/* ===== Dasar ===== */
+/* ===== Base ===== */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
 body {
@@ -108,7 +108,7 @@ button { font: inherit; color: inherit; }
 }
 .nav-menu a:hover, .nav-menu a.is-active { color: var(--text); background: var(--bg-soft); }
 
-/* Sembunyikan teks sebentar sampai terjemahan terpasang (hanya bila bahasa ≠ isi HTML). */
+/* Hide text briefly until the translation is applied (only when the language differs from the HTML). */
 .i18n-pending [data-i18n] { visibility: hidden; }
 
 .nav-tools { display: flex; align-items: center; gap: 6px; margin-left: 6px; }
@@ -162,7 +162,7 @@ button { font: inherit; color: inherit; }
   .theme-toggle { width: 42px; height: 42px; }
 }
 
-/* ===== Tombol ===== */
+/* ===== Buttons ===== */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 15px;
@@ -232,14 +232,14 @@ button { font: inherit; color: inherit; }
 .kicker { color: var(--primary); font: 500 13px "JetBrains Mono", monospace; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 12px; }
 .section h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 800; }
 
-/* Tentang */
+/* About */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; color: var(--muted); font-size: 1.05rem; }
 .values { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 12px; }
 .values li { padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 15px; }
 .values strong { display: block; color: var(--text); margin-bottom: 4px; }
 @media (max-width: 820px) { .about, .values { grid-template-columns: 1fr; } }
 
-/* Keahlian */
+/* Skills */
 .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 @media (max-width: 960px) { .skills { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .skills { grid-template-columns: 1fr; } }
@@ -264,7 +264,7 @@ button { font: inherit; color: inherit; }
   color: var(--muted); font: 500 12.5px "JetBrains Mono", monospace;
 }
 
-/* Proyek */
+/* Projects */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .chip {
   padding: 7px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface);
@@ -312,7 +312,7 @@ button { font: inherit; color: inherit; }
 .project-links a:hover { transform: translateX(3px); }
 .project-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* Pengalaman */
+/* Experience */
 .timeline { position: relative; display: grid; gap: 8px; }
 .timeline::before { content: ""; position: absolute; left: 180px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
 .timeline > li { display: grid; grid-template-columns: 180px 1fr; gap: 40px; padding: 18px 0; position: relative; }
@@ -338,7 +338,7 @@ button { font: inherit; color: inherit; }
 .education-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 24px; color: var(--muted); }
 .education-row strong { color: var(--text); }
 
-/* Kontak */
+/* Contact */
 .contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px 56px; align-items: start; }
 .contact-note { color: var(--muted); font-size: 1.05rem; max-width: 46ch; }
 .contact-list { margin: 0; border-top: 1px solid var(--border); }
@@ -361,39 +361,39 @@ button { font: inherit; color: inherit; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .footer-inner a:hover { color: var(--text); }
 
-/* ===== Animasi ===== */
-/* Semua hanya aktif bila JS jalan (kelas .js), supaya konten tetap terlihat tanpa JS. */
+/* ===== Animations ===== */
+/* Only active when JS runs (.js class), so content stays visible without JS. */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes lines { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes icon-in { from { opacity: 0; transform: rotate(-60deg) scale(.6); } to { opacity: 1; transform: none; } }
 @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-/* Muncul saat digulir; jeda per kartu diatur main.js lewat transition-delay. */
+/* Reveal on scroll; main.js sets a per-card transition-delay for the stagger. */
 .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .js .reveal.is-visible { opacity: 1; transform: none; }
-/* Setelah muncul, kartu kembali ke transisi hover yang cepat. */
+/* Once revealed, cards switch back to fast hover transitions. */
 .js .project.reveal-done, .js .skill-card.reveal-done { transition: transform .2s, box-shadow .2s, border-color .2s; }
 
-/* Hero: berurutan saat halaman dibuka. */
+/* Hero: sequential entrance on page load. */
 .js .hero-text > *, .js .hero-card { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
 .js .hero-text > :nth-child(2) { animation-delay: .08s; }
 .js .hero-text > :nth-child(3) { animation-delay: .16s; }
 .js .hero-text > :nth-child(4) { animation-delay: .24s; }
 .js .hero-text > :nth-child(5) { animation-delay: .32s; }
 .js .hero-card { animation-delay: .2s; }
-/* Isi profil.json terbuka baris demi baris (8 baris). */
+/* profile.json content unfolds line by line (8 lines). */
 .js .terminal pre code { display: block; animation: lines .9s steps(8, end) .6s both; }
 
-/* Garis timeline tergambar dari atas, titiknya muncul bersama tiap entri. */
+/* Timeline line draws from the top; each dot pops in with its entry. */
 .js .reveal-line::before { transform: scaleY(0); transform-origin: top; transition: transform 1.4s cubic-bezier(.4, 0, .2, 1); }
 .js .reveal-line.is-drawn::before { transform: scaleY(1); }
 .js .timeline > li.reveal::before { transform: scale(0); transition: transform .4s cubic-bezier(.3, 1.6, .5, 1) .25s; }
 .js .timeline > li.reveal.is-visible::before { transform: scale(1); }
 
-/* Kartu yang tampil setelah filter proyek diganti. */
+/* Cards shown after the project filter changes. */
 .projects.is-filtering .project:not([hidden]) { animation: fade-in .35s ease both; }
 
-/* Ikon tema berputar masuk setiap kali berganti; warna berpindah halus. */
+/* Theme icon spins in on every switch; colors transition smoothly. */
 .theme-toggle svg { animation: icon-in .35s ease; }
 .theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after {
   transition: background-color .35s ease, color .35s ease, border-color .35s ease, fill .35s ease !important;
@@ -406,7 +406,7 @@ button { font: inherit; color: inherit; }
   *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
 }
 
-/* Halaman 404 */
+/* 404 page */
 .notfound { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 24px; }
 .notfound h1 { font-size: clamp(4rem, 14vw, 8rem); font-weight: 800; }
 .notfound p { color: var(--muted); margin: 12px 0 28px; }
