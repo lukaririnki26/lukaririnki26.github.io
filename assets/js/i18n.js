@@ -33,7 +33,7 @@
     'stats.commits.v': '1,400+',
     'stats.services': 'Go services worked on',
 
-    'about.kicker': '01 — About',
+    'about.kicker': 'About',
     'about.title': 'Full-stack, from the database to the screen.',
     'about.p1': 'I started as a Full-Stack Developer in 2021 with Laravel, Bootstrap, jQuery, and MySQL. Over time I kept getting the heavier parts: slow summary reports, large data imports and exports, and ERP modules that all depend on each other. I also built a mobile app with Flutter along the way.',
     'about.p2': 'Since 2025 most of my time has gone into a large financial platform: from its Laravel version to its new version built on Go microservices and Nuxt, including the import engine, workflows, reporting, and the AI assistant. In between came other projects: a backend API, an admin panel, a Go boilerplate, and a Kafka integration. Outside the code I draw flowcharts, lead modules, and talk to clients directly.',
@@ -41,7 +41,7 @@
     'about.v2': '<strong>Leadership.</strong> Owning ERP modules and giving the team technical direction.',
     'about.v3': '<strong>Problem-solving.</strong> Digging into bugs and slow queries until the cause turns up.',
 
-    'skills.kicker': '02 — Skills',
+    'skills.kicker': 'Skills',
     'skills.title': 'The tools I use every day.',
     'skills.backend.t': 'Backend',
     'skills.backend.d': 'REST and gRPC, microservices with a message queue, and Laravel monoliths that have been running for years.',
@@ -56,7 +56,7 @@
     'skills.qa.t': 'Analysis &amp; Teamwork',
     'skills.qa.d': 'Process flowcharts, requirement discussions with clients, reviews, and a pull-request based Git flow.',
 
-    'projects.kicker': '03 — Selected Projects',
+    'projects.kicker': 'Selected Projects',
     'projects.title': 'A few things I have built.',
     'projects.filter': 'Filter projects',
     'projects.all': 'All',
@@ -91,7 +91,7 @@
     'link.discuss': 'Let\'s talk →',
     'link.github': 'View on GitHub →',
 
-    'exp.kicker': '04 — Experience',
+    'exp.kicker': 'Experience',
     'exp.title': 'Career journey.',
     'exp.0.when': 'Aug 2025 — Present',
     'exp.0.t': 'Backend Developer (Contract) · <span>PT Dynamic Talenta Navigator</span>',
@@ -122,24 +122,27 @@
     'edu.title': 'Education',
     'exp.4.d': '· Vocational high school, Pasuruan, East Java',
 
-    'contact.kicker': '05 — Contact',
-    'contact.title': 'Have a project or a role in mind? Let\'s talk.',
-    'contact.lead': 'Email or LinkedIn is the fastest way to reach me.',
-    'contact.copy': 'Copy email',
+    'contact.kicker': 'Contact',
+    'contact.title': 'Want to talk about work?',
+    'contact.p': 'I am open to full-time roles as well as freelance projects, on-site or remote. Email is the fastest way to reach me; I usually reply the same day.',
+    'contact.cv': 'Download PDF',
+    'contact.loc': 'Location',
+    'contact.locv': 'Pasuruan, East Java · open to remote',
+    'contact.copy': 'Copy',
 
     'footer.top': 'Back to top ↑',
 
     // Teks dinamis dari main.js
     'js.menu.open': 'Open menu',
     'js.menu.close': 'Close menu',
-    'js.copy.ok': 'Email copied to clipboard.',
+    'js.copy.ok': 'Copied',
     'js.copy.manual': 'Copy manually: '
   };
 
   var ID_DYNAMIC = {
     'js.menu.open': 'Buka menu',
     'js.menu.close': 'Tutup menu',
-    'js.copy.ok': 'Email disalin ke clipboard.',
+    'js.copy.ok': 'Tersalin',
     'js.copy.manual': 'Salin manual: '
   };
 

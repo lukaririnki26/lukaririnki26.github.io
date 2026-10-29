@@ -147,7 +147,7 @@
     <!-- TENTANG -->
     <section class="section container" id="tentang" aria-labelledby="tentang-judul">
       <div class="section-head reveal">
-        <p class="kicker" data-i18n="about.kicker">01 — Tentang</p>
+        <p class="kicker" data-i18n="about.kicker">Tentang</p>
         <h2 id="tentang-judul" data-i18n="about.title">Full-stack, dari database sampai layar.</h2>
       </div>
       <div class="about reveal">
@@ -170,7 +170,7 @@
     <!-- KEAHLIAN -->
     <section class="section container" id="keahlian" aria-labelledby="keahlian-judul">
       <div class="section-head reveal">
-        <p class="kicker" data-i18n="skills.kicker">02 — Keahlian</p>
+        <p class="kicker" data-i18n="skills.kicker">Keahlian</p>
         <h2 id="keahlian-judul" data-i18n="skills.title">Alat yang saya pakai sehari-hari.</h2>
       </div>
       <div class="skills">
@@ -228,7 +228,7 @@
     <!-- PROYEK -->
     <section class="section container" id="proyek" aria-labelledby="proyek-judul">
       <div class="section-head reveal">
-        <p class="kicker" data-i18n="projects.kicker">03 — Proyek Pilihan</p>
+        <p class="kicker" data-i18n="projects.kicker">Proyek Pilihan</p>
         <h2 id="proyek-judul" data-i18n="projects.title">Beberapa hal yang pernah saya bangun.</h2>
       </div>
 
@@ -386,7 +386,7 @@ internal/modules/
     <!-- PENGALAMAN -->
     <section class="section container" id="pengalaman" aria-labelledby="pengalaman-judul">
       <div class="section-head reveal">
-        <p class="kicker" data-i18n="exp.kicker">04 — Pengalaman</p>
+        <p class="kicker" data-i18n="exp.kicker">Pengalaman</p>
         <h2 id="pengalaman-judul" data-i18n="exp.title">Perjalanan kerja.</h2>
       </div>
       <ol class="timeline reveal-line">
@@ -457,15 +457,41 @@ internal/modules/
 
     <!-- KONTAK -->
     <section class="section container" id="kontak" aria-labelledby="kontak-judul">
+      <div class="section-head reveal">
+        <p class="kicker" data-i18n="contact.kicker">Kontak</p>
+        <h2 id="kontak-judul" data-i18n="contact.title">Mau ngobrol soal kerjaan?</h2>
+      </div>
       <div class="contact reveal">
-        <p class="kicker" data-i18n="contact.kicker">05 — Kontak</p>
-        <h2 id="kontak-judul" data-i18n="contact.title">Punya proyek atau peluang kerja? Mari ngobrol.</h2>
-        <p class="lead" data-i18n="contact.lead">Paling cepat lewat email atau LinkedIn.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary btn-lg" href="mailto:fahmiriottss@gmail.com">fahmiriottss@gmail.com</a>
-          <button class="btn btn-ghost btn-lg copy-email" type="button" data-email="fahmiriottss@gmail.com" data-i18n="contact.copy">Salin email</button>
-        </div>
-        <p class="copy-status" role="status" aria-live="polite"></p>
+        <p class="contact-note" data-i18n="contact.p">
+          Saya sedang membuka peluang untuk posisi full-time maupun proyek freelance, on-site atau remote. Email
+          paling cepat; biasanya saya balas di hari yang sama.
+        </p>
+        <dl class="contact-list">
+          <div>
+            <dt>Email</dt>
+            <dd>
+              <a href="mailto:fahmiriottss@gmail.com">fahmiriottss@gmail.com</a>
+              <button class="copy-email" type="button" data-email="fahmiriottss@gmail.com" data-i18n="contact.copy">Salin</button>
+              <span class="copy-status" role="status" aria-live="polite"></span>
+            </dd>
+          </div>
+          <div>
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/fahmi-ramadhani-455428216/" target="_blank" rel="noopener">fahmi-ramadhani-455428216</a></dd>
+          </div>
+          <div>
+            <dt>GitHub</dt>
+            <dd><a href="https://github.com/lukaririnki26" target="_blank" rel="noopener">lukaririnki26</a></dd>
+          </div>
+          <div>
+            <dt>CV</dt>
+            <dd><a href="/assets/cv.pdf" download="CV-Fahmi-Ramadhani.pdf" data-i18n="contact.cv">Unduh PDF</a></dd>
+          </div>
+          <div>
+            <dt data-i18n="contact.loc">Lokasi</dt>
+            <dd data-i18n="contact.locv">Pasuruan, Jawa Timur · bisa remote</dd>
+          </div>
+        </dl>
       </div>
     </section>
   </main>

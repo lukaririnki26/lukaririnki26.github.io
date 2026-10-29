@@ -1,7 +1,7 @@
 (function () {
   var root = document.documentElement;
   // Teks dinamis ikut bahasa aktif (lihat i18n.js); tanpa i18n.js jatuh ke teks Indonesia.
-  var FALLBACK = { 'js.menu.open': 'Buka menu', 'js.menu.close': 'Tutup menu', 'js.copy.ok': 'Email disalin ke clipboard.',
+  var FALLBACK = { 'js.menu.open': 'Buka menu', 'js.menu.close': 'Tutup menu', 'js.copy.ok': 'Tersalin',
     'js.copy.manual': 'Salin manual: ' };
   function t(key) { return (window.i18n && window.i18n.t(key)) || FALLBACK[key]; }
 
