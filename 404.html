@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halaman tidak ditemukan — Fahmi Ramadhani</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <main class="notfound">
+    <div>
+      <p class="kicker">Error 404</p>
+      <h1 class="grad">404</h1>
+      <p id="nf-text">Halaman yang Anda cari tidak ada atau sudah dipindahkan.</p>
+      <a class="btn btn-primary" id="nf-home" href="/">Kembali ke beranda</a>
+    </div>
+  </main>
+  <script>
+    try {
+      var l = localStorage.getItem('lang') || (/^id\b/i.test(navigator.language || '') ? 'id' : 'en');
+      if (l === 'en') {
+        document.documentElement.lang = 'en';
+        document.title = 'Page not found — Fahmi Ramadhani';
+                document.getElementById('nf-text').textContent = 'The page you are looking for does not exist or has moved.';
+        document.getElementById('nf-home').textContent = 'Back to home';
+      }
+    } catch (e) {}
+  </script>
+</body>
+</html>
