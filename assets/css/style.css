@@ -325,6 +325,11 @@ button { font: inherit; color: inherit; }
   .timeline > li::before { left: 0; top: 24px; }
 }
 
+.education { margin-top: 40px; padding-top: 28px; border-top: 1px dashed var(--border); }
+.education-title { font-size: 1rem; color: var(--subtle); font-weight: 600; margin-bottom: 10px; }
+.education-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 24px; color: var(--muted); }
+.education-row strong { color: var(--text); }
+
 /* Kontak */
 .contact {
   text-align: center; padding: 56px 24px; border-radius: 20px; border: 1px solid var(--border);
