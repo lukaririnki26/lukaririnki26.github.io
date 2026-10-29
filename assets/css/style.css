@@ -287,6 +287,12 @@ button { font: inherit; color: inherit; }
   background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent);
 }
 .project-year { color: var(--subtle); font: 13px "JetBrains Mono", monospace; }
+.project-shot { width: 100%; height: auto; margin-bottom: 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); }
+.project-code {
+  margin: 18px 0 0; padding: 14px 16px; overflow-x: auto; border-radius: 10px; background: var(--code-bg);
+  color: var(--code-text); font: 12.5px/1.6 "JetBrains Mono", ui-monospace, monospace;
+}
+.project-code .c { color: #64748b; }
 .project h3 { font-size: 1.25rem; margin-bottom: 10px; }
 .project > p { color: var(--muted); font-size: 15px; }
 .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }

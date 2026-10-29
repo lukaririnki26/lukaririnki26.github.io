@@ -14,7 +14,12 @@
   <meta property="og:url" content="https://lukaririnki26.github.io/">
   <meta property="og:locale" content="id_ID">
   <meta property="og:locale:alternate" content="en_US">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://lukaririnki26.github.io/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fahmi Ramadhani, Developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lukaririnki26.github.io/assets/img/og.jpg">
 
   <link rel="icon" href="/assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -128,12 +133,12 @@
   <span class="k">"frontend"</span>: [<span class="s">"Vue/Nuxt"</span>, <span class="s">"Flutter"</span>],
   <span class="k">"sql"</span>: [<span class="s">"PostgreSQL"</span>, <span class="s">"MySQL"</span>],
   <span class="k">"nosql"</span>: [<span class="s">"MongoDB"</span>, <span class="s">"Redis"</span>],
-  <span class="k">"lokasi"</span>: <span class="s">"Jawa Timur, ID"</span>
+  <span class="k">"lokasi"</span>: <span class="s">"Indonesia · remote"</span>
 }</code></pre>
         </div>
         <dl class="stats">
           <div><dt data-i18n="stats.years">Tahun pengalaman</dt><dd>5+</dd></div>
-          <div><dt data-i18n="stats.commits">Commit sejak 2025</dt><dd>1.400+</dd></div>
+          <div><dt data-i18n="stats.commits">Commit sejak 2025</dt><dd data-i18n="stats.commits.v">1.400+</dd></div>
           <div><dt data-i18n="stats.services">Layanan Go dikerjakan</dt><dd>9</dd></div>
         </dl>
       </aside>
@@ -253,7 +258,7 @@
           </ul>
           <ul class="tags"><li>Go</li><li>PostgreSQL</li><li>NATS</li><li>Nuxt</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="p1.link">Minta studi kasus →</a>
+            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -313,7 +318,7 @@
           </ul>
           <ul class="tags"><li>Go</li><li>LLM API</li><li>pgvector</li><li>RAG</li></ul>
           <div class="project-links">
-            <a href="#kontak" data-i18n="p2.link">Minta demo →</a>
+            <a href="#kontak" data-i18n="link.discuss">Diskusikan →</a>
           </div>
         </article>
 
@@ -326,6 +331,14 @@
           <p data-i18n="p9.d">
             Titik awal proyek backend tim: Go modular monolith dengan JWT, blacklist token, dan middleware keamanan, plus versi Rust (Axum). Sebelum platform keuangan dibangun ulang, saya juga membuat prototipe microservice Go dengan gRPC, API gateway, dan skrip uji beban RPS.
           </p>
+          <pre class="project-code" aria-label="Struktur folder boilerplate-go" data-i18n-attr="aria-label:p9.code"><code>cmd/
+├── api/        <span class="c"># HTTP server</span>
+└── cli/        <span class="c"># migrations &amp; seeders</span>
+internal/modules/
+├── auth/       <span class="c"># entity, dto, service, handler</span>
+├── master/
+├── system/
+└── transaction/</code></pre>
           <ul class="tags"><li>Go</li><li>Rust</li><li>gRPC</li><li>Docker</li></ul>
           <div class="project-links">
             <a href="https://github.com/lukaririnki26/boilerplate-go" target="_blank" rel="noopener">Go →</a>
@@ -355,6 +368,7 @@
             <span class="project-badge">Open Source</span>
             <span class="project-year">2026</span>
           </div>
+          <img class="project-shot" src="/assets/img/smart-filler-demo.jpg" width="1040" height="872" loading="lazy" alt="Formulir pendaftaran yang diisi otomatis oleh Smart Filler dengan data sintetis" data-i18n-attr="alt:p6.shot">
           <h3>Smart Filler</h3>
           <p data-i18n="p6.d">
             Ekstensi Chrome yang mengisi form dengan data uji yang realistis. Field dikenali dari autocomplete, label

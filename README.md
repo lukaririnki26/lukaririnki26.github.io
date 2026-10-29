@@ -16,9 +16,12 @@ vercel.json           Konfigurasi bila dideploy ke Vercel
 robots.txt, sitemap.xml
 ```
 
-## Yang perlu diganti
+## CV dan gambar
 
-- `assets/cv.pdf` adalah CV yang sudah ada di situs lama. Ganti dengan versi terbaru bila perlu.
+- `assets/cv.pdf` dicetak dari `cv/index.html` (juga bisa dibuka di `/cv`). Setelah mengubah `cv/index.html`, cetak ulang:
+  `brave-browser --headless=new --no-pdf-header-footer --print-to-pdf=assets/cv.pdf cv/index.html`
+- `assets/img/og.jpg` adalah gambar pratinjau link (1200x630) untuk LinkedIn/WhatsApp.
+- `assets/img/smart-filler-demo.jpg` adalah tangkapan layar Smart Filler pada formulir contoh, dengan kontak dan NIK palsu.
 - Angka di ringkasan (5+ tahun, 1.400+ commit di luar merge, 9 layanan) dihitung dari CV dan commit GitHub per Oktober 2026.
 
 ## Bahasa (ID/EN) dan tema (terang/gelap)
